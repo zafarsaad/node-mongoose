@@ -12,12 +12,25 @@ connect.then(() => {
 
     console.log('Connected correctly to the server');
 
-    const newCampsite = new Campsite({
+    // Making a change here that allows us to instantiate a campsite document model
+    // Old method:
+    // const newCampsite = new Campsite({
+    //     name: 'React Lake Campground',
+    //     description: 'Just testing decription'
+    // }); 
+    // ! rest of code continues the same way...
+    // newCampsite.save()
+    // .then(campsite => {
+    //     console.log(campsite);
+    //     return Campsite.find();
+    // })
+    
+    Campsite.create({
         name: 'React Lake Campground',
-        description: 'Just testing decription'
-    });
-
-    newCampsite.save()
+        description: 'Just testing description'
+    })
+    // newCampsite.save()
+    // save() method is no longer needed
     .then(campsite => {
         console.log(campsite);
         return Campsite.find();
